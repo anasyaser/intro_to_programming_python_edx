@@ -1,0 +1,164 @@
+\documentclass{article}
+
+\usepackage{array}
+\usepackage{minted}
+
+
+\title{Introduction to programming using python problems}
+\date{Auguest 2021}
+
+
+\begin{document}
+\maketitle
+\pagebreak
+\tableofcontents
+\pagebreak
+\section*{Unit 1: Python basics}
+
+\begin{enumerate}
+
+  \item Assume \textbf{s} is a string of lower case characters. Write a program
+    that counts up the number of vowels contained in the string \textbf{s}. Valid
+    vowels are: \textbf{a', 'e', 'i', 'o', and 'u'}. For example,
+    \textbf{if s = 'azcbobobegghakl'}, your program should print:\\
+    \verb| Number of vowels: 5|
+
+  \item Assume \textbf{s} is a string of lower case characters.Write a program \
+    that prints the number of times the string \textbf{'bob'} occurs in \textbf{s}.
+    For example, \textbf{if s = 'azcbobobegghakl'}, then your program should\
+    print
+
+    \verb|Number of times bob occurs is: 2|
+
+  \item Assume \textbf{s} is a string of lower case characters. Write a program
+    that prints the longest substring of \textbf{s} in which the letters occur
+    in alphabetical order. For example, \textbf{if s = 'azcbobobegghakl'}, then
+    your program should print
+
+    \verb|Longest substring in alphabetical order is: beggh|
+
+    In the case of ties, print the first substring. For example, \textbf{if s = 'abcbcd'},
+    then your program should print
+
+    \verb|Longest substring in alphabetical order is: abc|
+
+    \textbf{Note}: This problem may be challenging. We encourage you to work smart. If
+    you've spent more than a few hours on this problem, we suggest that you move
+    on to a different part of the course. If you have time, come back to this
+    problem after you've had a break and cleared your head.
+
+\end{enumerate}
+
+\pagebreak
+
+\section*{Unit 2: Simple programs}
+Each month, a credit card statement will come with the option for you to pay a
+minimum amount of your charge, usually 2\% of the balance due. However, the credit
+card company earns money by charging interest on the balance that you don't pay.
+So even if you pay credit card payments on time, interest is still accruing on
+the outstanding balance.
+
+Say you've made a \$5,000 purchase on a credit card with an 18\% annual interest
+rate and a 2\% minimum monthly payment rate. If you only pay the minimum monthly
+amount for a year, how much is the remaining balance?
+
+You can think about this in the following way.
+
+At the beginning of month 0 (when the credit card statement arrives), assume you
+owe an amount we will call $b_0$ (b for balance; subscript 0 to indicate this is the
+balance at month 0).
+
+Any payment you make during that month is deducted from the balance. Let's call
+the payment you make in month 0,$p_0$. Thus, your \verb|unpaid balance| for month 0,$ub_0$, is
+equal to $b_0-p_0$.
+
+\[ub_0 = b_0 - p_0\]
+
+At the beginning of month 1, the credit card company will charge you interest on
+your unpaid balance. So if your annual interest rate is $r$, then at the beginning
+of month 1, your new balance is your previous unpaid balance $ub_0$, \verb|plus| the interest
+on this unpaid balance for the month. In algebra, this new balance would be
+
+\[b_1 = ub_0 + r/12 * ub_0\]
+
+In month 1, we will make another payment,$p_1$. That payment has to cover some of
+the interest costs, so it does not completely go towards paying off the original
+charge. The balance at the beginning of month 2,$b_2$, can be calculated by first
+calculating the unpaid balance after paying $p_1$, then by adding the interest accrued:
+
+\[ub_1 = b_1 - p_1\]
+\[b_2 = ub_1 + r/12 * ub_1\]
+
+If you choose just to pay off the minimum monthly payment each month, you will
+see that the compound interest will dramatically reduce your ability to lower
+your debt.
+
+Let's look at an example. If you've got a \$5,000 balance on a credit card with
+18\% annual interest rate, and the minimum monthly payment is 2\% of the current
+balance, we would have the following repayment schedule if you only pay the
+minimum payment each month:
+
+\begin{table}[H]
+  \centering
+
+  \begin{tabular}{ | m{1cm} | m{3cm} | m{3cm} | m{3cm} | m{3cm} | }
+    \hline
+    Month & Balance & Minimum Payment & Unpaid Balance & Interest \\
+    \hline
+    0   & 5000.00 & 100(=5000 *.02) & 4900(=5000 -100) & 73.50(=.18/12.0 *4900)\\
+    \hline
+    1 & 4973.50(=4900 +73.50) & 99.47(=4973.50 *.02) & 4874.03(=4973.50 -99.47) & 73.11(=.18/12 *4874.03)\\
+    \hline
+    2 & 4947.14(=4874.03 +73.11) & 98.94(=4947.14 *.02) & 4848.20(=4947.14 -98.94) & 72.72(=.18/12 *4848.20)\\
+    \hline
+  \end{tabular}
+
+\end{table}
+  You can see that a lot of your payment is going to cover interest, and if you
+  work this through month 12, you will see that after a year, you will have paid
+  \$1165.63 and yet you will still owe \$4691.11 on what was originally a \$5000.00
+  debt. Pretty depressing!
+
+  \subsection*{Problem 1 - Paying Debt off in a Year }
+  Write a program to calculate the credit card balance after one year if a
+  person only pays the minimum monthly payment required by the credit card
+  company each month.
+
+  The following variables contain values as described below:
+  \begin{itemize}
+
+    \item \verb|balance| - the outstanding balance on the credit card
+    \item \verb|annualInterestRate| - annual interest rate as a decimal
+    \item \verb|monthlyPaymentRate| - minimum monthly payment rate as a decimal.
+
+    \end{itemize}
+
+  For each month, calculate statements on the monthly payment and remaining
+  balance. At the end of 12 months, print out the remaining balance. Be sure to
+  print out no more than two decimal digits of accuracy - so print
+
+  \verb|Remaining balance: 813.41|
+
+  instead of
+
+  \verb|Remaining balance: 813.4141998135|
+
+  So your program only prints out one thing: the remaining balance at the end of
+  the year in the format:
+
+  \verb|Remaining balance: 4784.0|
+
+  A summary of the required math is found below:
+
+  \textbf{Monthly interest rate}= (Annual interest rate) / 12.0
+  \textbf{Minimum monthly payment} = (Minimum monthly payment rate) x (Previous balance)
+  \textbf{Monthly unpaid balance} = (Previous balance) - (Minimum monthly payment)
+  \textbf{Updated balance each month} = (Monthly unpaid balance) + (Monthly interest rate
+  x Monthly unpaid balance)
+
+  We provide sample test cases below. We suggest you develop your code on your
+  own machine, and make sure your code passes the sample test cases, before you
+  paste it into the box below.
+
+  \subsection*{}
+\end{document}
