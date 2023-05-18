@@ -1,5 +1,5 @@
 """
- solution for problems of first unit
+Problems Solution of Unit 1:
 """
 # ----------------------------------------- #
 # Problem 1
@@ -23,4 +23,20 @@ print(f"Number of times bob occures is: {x}")
 # ----------------------------------------- #
 # Problem 3
 
+s = 'azcbobobegghakl'
 
+longest = ""
+comp = ""
+
+for idx, char in enumerate(s):
+    comp += char
+    for i in range(idx + 1, len(s)):
+        if (s[i] < comp[-1]):
+            break
+        elif (s[i] >= comp[-1]):
+            comp += s[i]
+    if len(comp) > len(longest):
+        longest = comp
+    comp = ""
+    
+print(f"Longest substring in alphabtical order is: {longest}")

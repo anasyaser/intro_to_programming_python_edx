@@ -2,10 +2,15 @@
 
 \usepackage{array}
 \usepackage{minted}
+\usepackage{hyperref}
 
 
 \title{Introduction to programming using python problems}
+\vfill
+\vspace{10cm}
 \date{Auguest 2021}
+\vfill
+\author{Anas Yaser}
 
 
 \begin{document}
@@ -13,6 +18,9 @@
 \pagebreak
 \tableofcontents
 \pagebreak
+
+\phantomsection
+\addcontentsline{toc}{section}{Unit 1: Python basics}
 \section*{Unit 1: Python basics}
 
 \begin{enumerate}
@@ -51,19 +59,20 @@
 
 \pagebreak
 
+\phantomsection
+\addcontentsline{toc}{section}{Unit 2: Simple programs}
 \section*{Unit 2: Simple programs}
 Each month, a credit card statement will come with the option for you to pay a
 minimum amount of your charge, usually 2\% of the balance due. However, the credit
 card company earns money by charging interest on the balance that you don't pay.
 So even if you pay credit card payments on time, interest is still accruing on
-the outstanding balance.
+the outstanding balance.\\
 
 Say you've made a \$5,000 purchase on a credit card with an 18\% annual interest
 rate and a 2\% minimum monthly payment rate. If you only pay the minimum monthly
-amount for a year, how much is the remaining balance?
+amount for a year, how much is the remaining balance?\\
 
-You can think about this in the following way.
-
+You can think about this in the following way.\\
 At the beginning of month 0 (when the credit card statement arrives), assume you
 owe an amount we will call $b_0$ (b for balance; subscript 0 to indicate this is the
 balance at month 0).
@@ -118,12 +127,13 @@ minimum payment each month:
   work this through month 12, you will see that after a year, you will have paid
   \$1165.63 and yet you will still owe \$4691.11 on what was originally a \$5000.00
   debt. Pretty depressing!
-
+  
   \subsection*{Problem 1 - Paying Debt off in a Year }
+	\phantomsection
+  	\addcontentsline{toc}{subsection}{Problem 1: Paying debp}
   Write a program to calculate the credit card balance after one year if a
   person only pays the minimum monthly payment required by the credit card
-  company each month.
-
+  company each month.\\
   The following variables contain values as described below:
   \begin{itemize}
 
@@ -135,17 +145,12 @@ minimum payment each month:
 
   For each month, calculate statements on the monthly payment and remaining
   balance. At the end of 12 months, print out the remaining balance. Be sure to
-  print out no more than two decimal digits of accuracy - so print
-
-  \verb|Remaining balance: 813.41|
-
-  instead of
-
-  \verb|Remaining balance: 813.4141998135|
-
+  print out no more than two decimal digits of accuracy - so print\\
+  \verb|Remaining balance: 813.41|\\
+  instead of\\
+  \verb|Remaining balance: 813.4141998135|\\
   So your program only prints out one thing: the remaining balance at the end of
-  the year in the format:
-
+  the year in the format:\\
   \verb|Remaining balance: 4784.0|
 
   A summary of the required math is found below:\\
